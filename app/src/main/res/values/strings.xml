@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">week6</string>
+    <string name="setting_kor">설정</string>
+    <string name="home_kor">홈</string>
+    <string name="check_kor">확인</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
