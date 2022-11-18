@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         val soundPool = SoundPool.Builder().build()
-        val soundID = soundPool.load(this,R.raw.wtf,1)
+        val soundID = soundPool.load(this, R.raw.wtf, 1)
 
         var isStarted: Boolean
         val handler = Handler(mainLooper)
@@ -34,15 +34,14 @@ class MainActivity : AppCompatActivity() {
 
             isStarted = true
             Thread() {
-                while(isStarted){
-                    if(sec == 59){
+                while (isStarted) {
+                    if (sec == 59) {
                         min++
                         sec = 0
-                    }
-                    else{
+                    } else {
                         sec++
                     }
-                    if(inMin == min.toString() && inSec == sec.toString()){
+                    if (inMin == min.toString() && inSec == sec.toString()) {
                         isStarted = false
                         handler.post {
                             myToast.show()
@@ -50,15 +49,16 @@ class MainActivity : AppCompatActivity() {
                             builder
                                 .setTitle("비상비상!!!")
                                 .setMessage("타이머 종료!!!!!@")
-                                .setPositiveButton("확인",
-                                    DialogInterface.OnClickListener { dialog, id ->
-                                        viewBinding.tvM.text = "00"
-                                        viewBinding.tvS.text = "00"
-                                    })
+                                .setPositiveButton(
+                                    "확인"
+                                ) { _, _ ->
+                                    viewBinding.tvM.text = "00"
+                                    viewBinding.tvS.text = "00"
+                                }
                             builder.create()
                             builder.show()
 
-                            soundPool.play(soundID,1.0f,1.0f,0,0,1.0f)
+                            soundPool.play(soundID, 1.0f, 1.0f, 0, 0, 1.0f)
                         }
                     }
                     handler.post {
